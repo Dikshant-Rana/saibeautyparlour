@@ -59,14 +59,16 @@ const ServiceSlider = React.forwardRef((props, ref) => {
             dragFree: false,
             containScroll: false,     // Allow overflow for better loop spacing
             slidesToScroll: 1,
+            duration: 30,             // smooth animation over 30ms
         },
         [
             Autoplay({
-                delay: 2500,            // 1.5 seconds per slide
+                delay: 4000,            // 4 seconds per slide
                 stopOnInteraction: false, // we'll handle this manually
                 stopOnMouseEnter: false,
                 playOnInit: true,
                 stopOnFocusIn: false,
+                defaultInteraction: false,
             }),
         ]
     );
@@ -84,10 +86,12 @@ const ServiceSlider = React.forwardRef((props, ref) => {
             clearTimeout(inactivityTimerRef.current);
         }
 
-        // Resume autoplay immediately
-        if (autoplayRef.current) {
-            autoplayRef.current.play();
-        }
+        // Schedule autoplay resume after 1 second
+        inactivityTimerRef.current = setTimeout(() => {
+            if (autoplayRef.current) {
+                autoplayRef.current.play();
+            }
+        }, 1000);
     }, []);
 
     const scrollNext = useCallback(() => {
@@ -100,10 +104,12 @@ const ServiceSlider = React.forwardRef((props, ref) => {
             // Scroll to next slide
             emblaApi.scrollNext();
 
-            // Reset the inactivity timer
+            // Reset the inactivity timer to resume autoplay after 1 second
             resetInactivityTimer();
         }
     }, [emblaApi, resetInactivityTimer]);
+
+
 
     // Cleanup timer on unmount
     useEffect(() => {
@@ -123,16 +129,6 @@ const ServiceSlider = React.forwardRef((props, ref) => {
         <div 
             className="relative overflow-hidden" 
             ref={emblaRef}
-            onMouseEnter={() => {
-                if (autoplayRef.current) {
-                    autoplayRef.current.stop();
-                }
-            }}
-            onMouseLeave={() => {
-                if (autoplayRef.current) {
-                    autoplayRef.current.play();
-                }
-            }}
         >
             {/* Slides */}
             <div className="flex">

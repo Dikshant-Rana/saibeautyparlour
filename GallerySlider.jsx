@@ -49,10 +49,11 @@ const GallerySlider = React.forwardRef((props, ref) => {
       dragFree: false,
       containScroll: false,
       slidesToScroll: 1,
+      duration: 30,             // smooth animation over 30ms
     },
     [
       Autoplay({
-        delay: 2500,            // 2.5 seconds per slide
+        delay: 4000,            // 4 seconds per slide
         stopOnInteraction: false, // we'll handle this manually
         stopOnMouseEnter: false,
         playOnInit: true,
@@ -83,12 +84,12 @@ const GallerySlider = React.forwardRef((props, ref) => {
       clearTimeout(inactivityTimerRef.current);
     }
 
-    // Resume autoplay after 2 seconds of inactivity
+    // Resume autoplay after 1 second of inactivity
     inactivityTimerRef.current = setTimeout(() => {
       if (autoplayRef.current) {
         autoplayRef.current.play();
       }
-    }, 2000);
+    }, 1000);
   }, []);
 
   const scrollPrev = useCallback(() => {
@@ -142,16 +143,6 @@ const GallerySlider = React.forwardRef((props, ref) => {
       <div 
         className="relative overflow-hidden" 
         ref={emblaRef}
-        onMouseEnter={() => {
-          if (autoplayRef.current) {
-            autoplayRef.current.stop();
-          }
-        }}
-        onMouseLeave={() => {
-          if (autoplayRef.current) {
-            autoplayRef.current.play();
-          }
-        }}
       >
         <div className="flex">
           {galleryItems.map((item) => (

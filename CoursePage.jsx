@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import NavBar from './NavBar';
+import Footer from './Footer';
 import {
     FiBook, FiUsers, FiStar, FiActivity,
-    FiBriefcase, FiCheckCircle
+    FiBriefcase, FiCheckCircle, FiSearch
 } from 'react-icons/fi';
 
 // WhatsApp Message Handler
@@ -17,6 +19,19 @@ const CoursePage = () => {
     const [isServicesOpen, setIsServicesOpen] = useState(false);
     const [isResourcesOpen, setIsResourcesOpen] = useState(false);
     const [openFAQ, setOpenFAQ] = useState(null);
+
+    // Auto-scroll to courses if enroll parameter is set
+    React.useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('enroll') === 'true') {
+            setTimeout(() => {
+                const coursesSection = document.getElementById('courses');
+                if (coursesSection) {
+                    coursesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+    }, []);
 
     // Courses Data
     const broadCourses = [
@@ -126,9 +141,9 @@ const CoursePage = () => {
     // Trainers Data
     const trainers = [
         {
-            name: "Aarfa Poudel",
-            role: "Creative Director & Lead Trainer",
-            exp: "12+ years",
+            name: "Sanu Lama",
+            role: "Owner & Lead Trainer",
+            exp: "15+ years",
             bio: "Specialist in bridal and fashion makeup with international experience.",
             image: "./image/sai3.jpg"
         },
@@ -214,9 +229,9 @@ const CoursePage = () => {
         { id: 3, image: "./image/training3.jpg" },
         { id: 4, image: "./image/training4.jpg" },
         { id: 5, image: "./image/training5.jpg" },
-        { id: 6, image: "./image/training6.jpg" },
-        { id: 7, image: "./image/parlour_frontimg.jpeg" },
-        { id: 8, image: "./image/sai3.jpg" }
+        { id: 6, image: "./image/training7.jpg" },
+        { id: 7, image: "./image/new1.jpg" },
+        { id: 8, image: "./image/new2.jpg" }
     ];
 
     // FAQ Data
@@ -250,174 +265,20 @@ const CoursePage = () => {
     return (
         <div className="min-h-screen bg-white text-gray-900 font-sans selection:bg-pink-100 selection:text-pink-900">
             {/* Header */}
-            <header className="fixed top-0 left-0 right-0 bg-white text-black z-50 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-16">
-                        {/* Logo Placeholder */}
-                        <div className="flex-shrink-0 flex items-center">
-                            <span className="font-serif text-2xl font-bold italic">Logo</span>
-                        </div>
-
-                        {/* Desktop Navigation */}
-                        <nav className="hidden md:flex space-x-8 items-center">
-                            <Link to="/" className="text-sm font-medium hover:text-pink-600 transition-colors">Home</Link>
-                            <Link to="/about" className="text-sm font-medium hover:text-pink-600 transition-colors">About us</Link>
-                            <div className="relative group h-full flex items-center" onMouseLeave={() => !('ontouchstart' in window) && setIsServicesOpen(false)}>
-                                <button
-                                    onClick={() => { setIsServicesOpen(!isServicesOpen); setIsResourcesOpen(false); }}
-                                    className="text-sm font-medium hover:text-pink-600 transition-colors flex items-center py-5"
-                                >
-                                    Services
-                                    <svg className={`ml-1 h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''} group-hover:rotate-180`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-
-                                <div className={`absolute top-full left-0 w-56 bg-white border border-gray-100 shadow-xl transition-all duration-200 z-50 ${isServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} group-hover:opacity-100 group-hover:visible`}>
-                                    <div className="py-2">
-                                        <Link to="/services/hair" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Hair Styling & Care</Link>
-                                        <Link to="/services/skincare" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Skincare Treatments</Link>
-                                        <Link to="/services/makeup" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Makeup Application</Link>
-                                        <Link to="/services/nails-spa" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Nails & Spa Services</Link>
-                                        <Link to="/services/wedding" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Wedding Packages</Link>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="relative group h-full flex items-center" onMouseLeave={() => !('ontouchstart' in window) && setIsResourcesOpen(false)}>
-                                <button
-                                    onClick={() => { setIsResourcesOpen(!isResourcesOpen); setIsServicesOpen(false); }}
-                                    className="text-sm font-medium text-pink-600 flex items-center py-5"
-                                >
-                                    Resources
-                                    <svg className={`ml-1 h-4 w-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''} group-hover:rotate-180`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-
-                                <div className={`absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl transition-all duration-200 z-50 ${isResourcesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'} group-hover:opacity-100 group-hover:visible`}>
-                                    <div className="py-2">
-                                        <Link to="/course" className="block px-5 py-2.5 text-sm text-pink-600 bg-gray-50 font-medium transition-colors">Courses</Link>
-                                        <Link to="/gallery" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Gallery</Link>
-                                        <Link to="/contact" className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-pink-600 transition-colors">Contact</Link>
-                                    </div>
-                                </div>
-                            </div>
-                        </nav>
-
-                        {/* Header Actions */}
-                        <div className="hidden md:flex items-center space-x-4">
-                            <Link to="/contact" className="px-4 py-1.5 text-sm font-medium border border-gray-300 hover:bg-gray-50 transition-colors">
-                                Book
-                            </Link>
-                            <button className="px-4 py-1.5 text-sm font-medium bg-pink-600 text-white hover:bg-pink-700 transition-colors">
-                                Call
-                            </button>
-                        </div>
-
-                        {/* Mobile menu button */}
-                        <div className="md:hidden flex items-center">
-                            <button
-                                type="button"
-                                onClick={() => {
-                                    setIsMenuOpen((prev) => {
-                                        const next = !prev;
-                                        if (!next) {
-                                            setIsServicesOpen(false);
-                                            setIsResourcesOpen(false);
-                                        }
-                                        return next;
-                                    });
-                                }}
-                                className="text-gray-500 hover:text-black focus:outline-none"
-                            >
-                                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    {isMenuOpen ? (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    ) : (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                    )}
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Mobile Navigation Menu */}
-                {isMenuOpen && (
-                    <div className="md:hidden bg-white border-b border-gray-200">
-                        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                            <Link to="/" className="block px-3 py-2 text-base font-medium hover:bg-gray-50">Home</Link>
-                            <Link to="/about" className="block px-3 py-2 text-base font-medium hover:bg-gray-50">About us</Link>
-                            <div className="px-3 py-1 space-y-1 dropdown-container">
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        setIsServicesOpen((prev) => !prev);
-                                        setIsResourcesOpen(false);
-                                    }}
-                                    className="w-full flex justify-between items-center py-2 text-base font-medium hover:bg-gray-50"
-                                >
-                                    <span>Services</span>
-                                    <svg className={`h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                {isServicesOpen && (
-                                    <div className="ml-3 mt-1 space-y-1">
-                                        <Link to="/services/hair" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Hair Styling & Care</Link>
-                                        <Link to="/services/skincare" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Skincare Treatments</Link>
-                                        <Link to="/services/makeup" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Makeup Application</Link>
-                                        <Link to="/services/nails-spa" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Nails & Spa Services</Link>
-                                        <Link to="/services/wedding" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Wedding Packages</Link>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="px-3 py-1 space-y-1 dropdown-container">
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        setIsResourcesOpen((prev) => !prev);
-                                        setIsServicesOpen(false);
-                                    }}
-                                    className="w-full flex justify-between items-center py-2 text-base font-medium text-pink-600 bg-pink-50 px-2 rounded-md -ml-2"
-                                >
-                                    <span>Resources</span>
-                                    <svg className={`h-4 w-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
-                                {isResourcesOpen && (
-                                    <div className="ml-3 mt-1 space-y-1">
-                                        <Link to="/course" className="block px-3 py-1.5 text-sm text-pink-600 font-medium bg-gray-50 rounded-md">Courses</Link>
-                                        <Link to="/gallery" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Gallery</Link>
-                                        <Link to="/contact" className="block px-3 py-1.5 text-sm hover:bg-gray-50 text-gray-700">Contact</Link>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="flex space-x-4 px-3 py-2 mt-2">
-                                <Link to="/contact" className="flex-1 px-4 py-2 text-sm font-medium border border-gray-300 hover:bg-gray-50">
-                                    Book
-                                </Link>
-                                <button className="flex-1 px-4 py-2 text-sm font-medium bg-pink-600 text-white hover:bg-pink-700">
-                                    Call
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </header>
+            <NavBar forceScrolled={true} />
 
             <main className="pt-16">
                 {/* ========== HERO SECTION ========== */}
-                <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center py-24 bg-gradient-to-b from-gray-900 to-gray-800 overflow-hidden">
+                <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center py-24 overflow-hidden">
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0">
                         <img
                             src="./image/parlour_frontimg.jpeg"
                             alt="Beauty Training Academy"
-                            className="w-full h-full object-cover opacity-35"
+                            className="w-full h-full object-cover"
                         />
-
+                        {/* Warm overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60"></div>
                     </div>
 
                     <div className="relative z-10 w-full max-w-5xl mx-auto px-4 flex flex-col items-center text-center">
@@ -433,19 +294,20 @@ const CoursePage = () => {
                             Hands-on practical training inside our working salon | Certified programs with real career support
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <div className="flex flex-row gap-2 sm:gap-4 justify-center flex-nowrap">
                             <button
                                 onClick={() => {
                                     document.getElementById('courses').scrollIntoView({ behavior: 'smooth' });
                                 }}
-                                className="px-8 py-4 bg-white text-pink-600 font-bold text-sm rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl">
-                                Browse All Courses
+                                className="px-4 sm:px-6 py-3.5 sm:py-4 bg-white text-pink-600 font-bold text-xs sm:text-sm rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap">
+                                <FiSearch className="w-4 h-4 sm:w-5 sm:h-5" />
+                                <span>Browse All Courses</span>
                             </button>
                             <button
                                 onClick={() => openWhatsApp("Hi, I'm interested in your beauty training programs. Please share details and upcoming batch information.")}
-                                className="px-8 py-4 bg-pink-600 text-white font-bold text-sm rounded-lg hover:bg-pink-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
-                                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488z" /></svg>
-                                Enquire on WhatsApp
+                                className="px-4 sm:px-6 py-3.5 sm:py-4 bg-pink-600 text-white font-bold text-xs sm:text-sm rounded-lg hover:bg-pink-700 transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
+                                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488z" /></svg>
+                                <span>Message Us</span>
                             </button>
                         </div>
                     </div>
@@ -455,13 +317,13 @@ const CoursePage = () => {
                 <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4 text-gray-900">Why Choose Our Beauty Academy</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-4 text-gray-900">Why Choose Our Beauty Academy</h2>
                             <p className="text-gray-600 text-base font-light max-w-2xl mx-auto">Warm, inviting training with a focus on real-world skills and career growth</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {whyChoose.map((item, idx) => (
-                                <div key={idx} className="p-6 bg-gray-50 rounded-xl border border-gray-100 hover:border-pink-200 hover:shadow-lg transition-all">
+                                <div key={idx} className="p-6 bg-gray-50 rounded-xl border border-gray-100 shadow-sm hover:border-pink-200 hover:shadow-lg transition-all">
                                     <div className="mb-4 text-gray-800">{item.icon}</div>
                                     <h3 className="font-bold text-gray-900 mb-2 text-lg">{item.title}</h3>
                                     <p className="text-sm text-gray-600 font-light leading-relaxed">{item.desc}</p>
@@ -475,7 +337,7 @@ const CoursePage = () => {
                 <section id="courses" className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-20">
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Our Training Programs</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Our Training Programs</h2>
                             <p className="text-gray-600 text-base font-light">Comprehensive programs designed for every learning level</p>
                         </div>
 
@@ -488,7 +350,7 @@ const CoursePage = () => {
 
                             <div className="grid grid-cols-1 gap-16">
                                 {broadCourses.map((course, idx) => (
-                                    <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all">
+                                    <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all">
                                         {/* Image Side */}
                                         <div className={`relative ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                                             <div className="relative aspect-[4/5] overflow-hidden rounded-xl shadow-lg">
@@ -523,7 +385,7 @@ const CoursePage = () => {
 
                                             <button
                                                 onClick={() => openWhatsApp(course.whatsappMsg)}
-                                                className="w-full py-3.5 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                                                className="w-full py-3.5 bg-pink-600 text-white font-bold rounded-lg hover:bg-pink-700 transition-all shadow-sm hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer">
                                                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488z" /></svg>
                                                 Enroll via WhatsApp
                                             </button>
@@ -542,7 +404,7 @@ const CoursePage = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {specializedCourses.map((course, idx) => (
-                                    <div key={idx} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all group">
+                                    <div key={idx} className="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition-all group">
                                         {/* Image */}
                                         <div className="relative h-64 overflow-hidden bg-gray-100">
                                             <img
@@ -574,7 +436,7 @@ const CoursePage = () => {
 
                                             <button
                                                 onClick={() => openWhatsApp(course.whatsappMsg)}
-                                                className="w-full py-3 bg-pink-600 text-white font-bold text-sm rounded-lg hover:bg-pink-700 transition-all">
+                                                className="w-full py-3 bg-pink-600 text-white font-bold text-sm rounded-lg hover:bg-pink-700 transition-all cursor-pointer">
                                                 Enroll via WhatsApp
                                             </button>
                                         </div>
@@ -589,7 +451,7 @@ const CoursePage = () => {
                 <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Gallery – Training in Action</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Gallery – Training in Action</h2>
                             <p className="text-gray-600 text-base font-light">Real moments from our training sessions and student achievements</p>
                         </div>
 
@@ -611,13 +473,13 @@ const CoursePage = () => {
                 <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Meet Our Trainers</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">Meet Our Trainers</h2>
                             <p className="text-gray-600 text-base font-light">Expert instructors with years of industry experience</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {trainers.map((trainer, idx) => (
-                                <div key={idx} className="bg-white rounded-xl border border-gray-100 overflow-hidden hover:shadow-xl transition-all">
+                                <div key={idx} className="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-lg transition-all">
                                     {/* Image */}
                                     <div className="h-64 overflow-hidden bg-gray-200">
                                         <img
@@ -644,13 +506,13 @@ const CoursePage = () => {
                 <section className="w-full py-24 px-4 sm:px-6 lg:px-8 bg-white border-b border-gray-100">
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">What Our Students Say</h2>
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold mb-3 text-gray-900">What Our Students Say</h2>
                             <p className="text-gray-600 text-base font-light">Genuine testimonials from our graduates</p>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                             {testimonials.map((testimonial, idx) => (
-                                <div key={idx} className="bg-gray-50 rounded-xl p-8 border border-gray-100 hover:shadow-lg transition-all">
+                                <div key={idx} className="bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-lg transition-all">
                                     {/* Stars */}
                                     <div className="flex gap-1 mb-4">
                                         {[...Array(testimonial.rating)].map((_, i) => (
@@ -691,10 +553,10 @@ const CoursePage = () => {
 
                         <div className="space-y-4">
                             {faqs.map((faq, idx) => (
-                                <div key={idx} className="bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-all">
+                                <div key={idx} className="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all">
                                     <button
                                         onClick={() => setOpenFAQ(openFAQ === idx ? null : idx)}
-                                        className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                                        className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors cursor-pointer"
                                     >
                                         <h4 className="font-bold text-gray-900 text-base">{faq.q}</h4>
                                         <svg
@@ -724,58 +586,16 @@ const CoursePage = () => {
 
                         <button
                             onClick={() => openWhatsApp("Hi, I want to enroll in a beauty training course. Please guide me on the best option, fees, and upcoming batches.")}
-                            className="inline-flex items-center gap-3 px-10 py-4 bg-white text-pink-600 font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-lg">
-                            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488z" /></svg>
-                            Enroll via WhatsApp Now
+                            className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-10 py-3.5 sm:py-4 bg-white text-pink-600 font-bold rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl text-sm sm:text-lg cursor-pointer whitespace-nowrap">
+                            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488z" /></svg>
+                            <span>Enroll via WhatsApp Now</span>
                         </button>
                     </div>
                 </section>
             </main>
 
             {/* Footer */}
-            <footer className="w-full bg-[#0a0a0a] text-white pt-20 pb-8 px-6 sm:px-6 lg:px-8 border-t border-white/10">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                        <div>
-                            <span className="font-serif text-3xl font-bold italic">Logo</span>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-sm mb-4">Navigation</h4>
-                            <div className="space-y-3">
-                                <Link to="/" className="text-xs text-gray-400 hover:text-white transition-colors block">Home</Link>
-                                <Link to="/about" className="text-xs text-gray-400 hover:text-white transition-colors block">About us</Link>
-                                <Link to="/gallery" className="text-xs text-gray-400 hover:text-white transition-colors block">Gallery</Link>
-                                <Link to="/course" className="text-xs text-gray-400 hover:text-white transition-colors block">Courses</Link>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-sm mb-4">Services</h4>
-                            <div className="space-y-3">
-                                <Link to="/services/hair" className="text-xs text-gray-400 hover:text-white transition-colors block">Hair Styling</Link>
-                                <Link to="/services/makeup" className="text-xs text-gray-400 hover:text-white transition-colors block">Makeup</Link>
-                                <Link to="/services/skincare" className="text-xs text-gray-400 hover:text-white transition-colors block">Skincare</Link>
-                                <Link to="/services/nails-spa" className="text-xs text-gray-400 hover:text-white transition-colors block">Nails & Spa</Link>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 className="font-bold text-sm mb-4">Connect</h4>
-                            <div className="space-y-3">
-                                <button
-                                    onClick={() => openWhatsApp("Hi, I'd like to get more information about your services.")}
-                                    className="text-xs text-gray-400 hover:text-white transition-colors block text-left">WhatsApp</button>
-                                <Link to="/contact" className="text-xs text-gray-400 hover:text-white transition-colors block">Contact</Link>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                        <p className="text-xs text-gray-400">&copy; 2024 Beauty Academy. All rights reserved.</p>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 };
