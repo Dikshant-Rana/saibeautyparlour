@@ -13,7 +13,7 @@ import CoursePage from './CoursePage';
 
 function App() {
   return (
-    <Router basename="/saibeautyparlour">
+    <Router>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />

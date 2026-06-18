@@ -10,7 +10,7 @@ const services = [
         title: "Hair styling and care",
         description: "From cuts to color, we shape your look with precision and artistry.",
         icon: "HAIR STYLING",
-        image: "/image/hair.jpg",
+        image: "./image/hair.jpg",
         route: "/services/hair"
     },
     {
@@ -18,7 +18,7 @@ const services = [
         title: "Skincare treatments",
         description: "Nourish your skin with our specialized facials and therapeutic treatments.",
         icon: "SKINCARE",
-        image: "/image/skincare.png",
+        image: "./image/skincare.png",
         route: "/services/skincare"
     },
     {
@@ -26,7 +26,7 @@ const services = [
         title: "Makeup application",
         description: "Enhance your features for any occasion with our expert makeup artists.",
         icon: "MAKEUP",
-        image: "/image/sai3.jpg",
+        image: "./image/sai3.jpg",
         route: "/services/makeup"
     },
     {
@@ -34,7 +34,7 @@ const services = [
         title: "Nails & spa services",
         description: "Complete nail care from manicures to artistic designs, plus relaxing spa treatments.",
         icon: "NAILS & SPA",
-        image: "/image/nails.jpg",
+        image: "./image/nails.jpg",
         route: "/services/nails-spa"
     },
     {
@@ -42,7 +42,7 @@ const services = [
         title: "Wedding packages",
         description: "Complete bridal beauty services for your special day.",
         icon: "BRIDAL",
-        image: "/image/sai1.jpg",
+        image: "./image/sai1.jpg",
         route: "/services/wedding"
     }
 ];
