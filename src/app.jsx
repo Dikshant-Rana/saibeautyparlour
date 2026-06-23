@@ -13,7 +13,7 @@ import CoursePage from './pages/CoursePage';
 
 function App() {
   return (
-    <Router>
+    <Router basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<LandingPage />} />
