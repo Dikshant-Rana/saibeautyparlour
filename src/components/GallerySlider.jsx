@@ -6,32 +6,32 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 const galleryItems = [
   {
     id: 1,
-    image: "./image/sai3.jpg",
+    image: "/images/sai3.jpg",
     alt: "Hair styling work"
   },
   {
     id: 2,
-    image: "./image/latest3.jpg",
+    image: "/images/latest3.jpg",
     alt: "Skincare treatment"
   },
   {
     id: 3,
-    image: "./image/latest19.jpg",
+    image: "/images/latest19.jpg",
     alt: "Makeup application"
   },
   {
     id: 4,
-    image: "./image/latest20.jpg",
+    image: "/images/latest20.jpg",
     alt: "Nail art design"
   },
   {
     id: 5,
-    image: "./image/latest21.jpg",
+    image: "/images/latest21.jpg",
     alt: "Bridal makeup"
   },
   {
     id: 6,
-    image: "./image/latest18.jpg",
+    image: "/images/latest18.jpg",
     alt: "Spa treatment"
   }
 ];

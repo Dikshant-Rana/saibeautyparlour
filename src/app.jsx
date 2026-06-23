@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import LandingPage from './LandingPage';
-import AboutPage from './AboutPage';
-import ContactPage from './ContactPage';
-import Gallery from './GalleryPage';
-import HairServicesPage from './HairServicesPage';
-import SkincareServicesPage from './SkincareServicesPage';
-import MakeupServicesPage from './MakeupServicesPage';
-import NailsSpaServicesPage from './NailsSpaServicesPage';
-import WeddingServicesPage from './WeddingServicesPage';
-import ScrollToTop from './ScrollToTop';
-import CoursePage from './CoursePage';
+import LandingPage from './pages/LandingPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import Gallery from './pages/GalleryPage';
+import HairServicesPage from './pages/HairServicesPage';
+import SkincareServicesPage from './pages/SkincareServicesPage';
+import MakeupServicesPage from './pages/MakeupServicesPage';
+import NailsSpaServicesPage from './pages/NailsSpaServicesPage';
+import WeddingServicesPage from './pages/WeddingServicesPage';
+import ScrollToTop from './components/ScrollToTop';
+import CoursePage from './pages/CoursePage';
 
 function App() {
   return (

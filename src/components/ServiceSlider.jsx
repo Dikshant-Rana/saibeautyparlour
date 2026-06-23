@@ -9,40 +9,35 @@ const services = [
         id: 1,
         title: "Hair styling and care",
         description: "From cuts to color, we shape your look with precision and artistry.",
-        icon: "HAIR STYLING",
-        image: "./image/hair.jpg",
+        icon: "HAIR STYLING",        image: "/images/hair.jpg",
         route: "/services/hair"
     },
     {
         id: 2,
         title: "Skincare treatments",
         description: "Nourish your skin with our specialized facials and therapeutic treatments.",
-        icon: "SKINCARE",
-        image: "./image/skincare.png",
+        icon: "SKINCARE",        image: "/images/skincare.png",
         route: "/services/skincare"
     },
     {
         id: 3,
         title: "Makeup application",
         description: "Enhance your features for any occasion with our expert makeup artists.",
-        icon: "MAKEUP",
-        image: "./image/sai3.jpg",
+        icon: "MAKEUP",        image: "/images/sai3.jpg",
         route: "/services/makeup"
     },
     {
         id: 4,
         title: "Nails & spa services",
         description: "Complete nail care from manicures to artistic designs, plus relaxing spa treatments.",
-        icon: "NAILS & SPA",
-        image: "./image/nails.jpg",
+        icon: "NAILS & SPA",        image: "/images/nails.jpg",
         route: "/services/nails-spa"
     },
     {
         id: 5,
         title: "Wedding packages",
         description: "Complete bridal beauty services for your special day.",
-        icon: "BRIDAL",
-        image: "./image/sai1.jpg",
+        icon: "BRIDAL",        image: "/images/sai1.jpg",
         route: "/services/wedding"
     }
 ];
@@ -126,8 +121,8 @@ const ServiceSlider = React.forwardRef((props, ref) => {
     }));
 
     return (
-        <div 
-            className="relative overflow-hidden" 
+        <div
+            className="relative overflow-hidden"
             ref={emblaRef}
         >
             {/* Slides */}

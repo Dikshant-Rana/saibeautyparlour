@@ -1,11 +1,13 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiHome, FiInfo, FiShoppingBag, FiBook, FiImage, FiMail, FiScissors, FiDroplet, FiMic, FiZap, FiHeart, FiSearch, FiPhone } from 'react-icons/fi';
 import { FaPaintbrush, FaSpa, FaRing, FaGraduationCap, FaFacebook, FaInstagram, FaWhatsapp, FaTiktok } from 'react-icons/fa6';
-import ServiceSlider from './ServiceSlider';
-import GallerySlider from './GallerySlider';
+import ServiceSlider from '../components/ServiceSlider';
+import GallerySlider from '../components/GallerySlider';
+
+
 
 const LandingPage = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,19 +29,19 @@ const LandingPage = () => {
     // Hero slider data
     const heroSlides = [
         {
-            image: './image/parlour_frontimg.jpeg',
+            image: '/images/parlour_frontimg.jpeg',
             alt: 'Sai Beauty Parlour',
             heading: <>Transform <br />yourself at Sai<br />Beauty Parlour</>,
             paragraph: 'We bring out your natural radiance with expert care and premium treatments. Step into our sanctuary and experience the transformation you deserve.',
         },
         {
-            image: './image/team1.jpg',
+            image: '/images/team1.jpg',
             alt: 'Beauty Training Courses',
             heading: <>Master the Art of<br />Professional<br />Beauty</>,
             paragraph: 'Enroll in our industry-leading beauty training courses. From basic techniques to advanced artistry, learn hands-on from experienced professionals in a real salon environment.',
         },
         {
-            image: './image/training1.jpg',
+            image: '/images/training1.jpg',
             alt: 'Certificate Distribution',
             heading: <>Certified<br />Excellence in<br />Beauty</>,
             paragraph: 'Graduate with a professionally recognized certificate that opens doors to your dream career. Our accredited programs prepare you for success in the beauty industry.',
@@ -318,8 +320,7 @@ const LandingPage = () => {
                     {/* Image Content */}
                     <div className="w-full md:w-1/2">
                         <div className="aspect-[4/3] sm:aspect-square bg-gray-100 rounded-sm overflow-hidden">
-                            <img
-                                src="./image/parlour_frontimg.jpeg"
+                            <img src="/images/parlour_frontimg.jpeg"
                                 alt="Aarfa Beauty Parlour Front"
                                 className="w-full h-full object-cover"
                             />
@@ -393,7 +394,7 @@ const LandingPage = () => {
                                 loop
                                 playsInline
                                 controls={hasInteractedWithVideo}
-                                poster="./image/testimonial.png"
+                                poster="/images/testimonial.png"
                                 onPause={() => setIsVideoPlaying(false)}
                                 onPlay={() => setIsVideoPlaying(true)}
                                 onClick={() => {
@@ -404,7 +405,7 @@ const LandingPage = () => {
                                     }
                                 }}
                             >
-                                <source src="./image/testimonial.mp4" type="video/mp4" />
+                                <source src="/images/testimonial.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
 
@@ -512,8 +513,7 @@ const LandingPage = () => {
                     {/* Image Content */}
                     <div className="w-full md:w-1/2">
                         <div className="aspect-[4/3] sm:aspect-square bg-gray-100 rounded-sm overflow-hidden">
-                            <img
-                                src="./image/course1.jpg"
+                            <img src="/images/course1.jpg"
                                 alt="Sai Beauty Training Session"
                                 className="w-full h-full object-cover"
                             />
@@ -538,8 +538,7 @@ const LandingPage = () => {
                         {/* Member 1 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sanu1.jpg"
+                                <img src="/images/sanu1.jpg"
                                     alt="Aarfa Poudel"
                                     className="w-full h-full object-cover"
                                 />
@@ -567,8 +566,7 @@ const LandingPage = () => {
                         {/* Member 2 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sai3.jpg"
+                                <img src="/images/sai3.jpg"
                                     alt="Deepa Sharma"
                                     className="w-full h-full object-cover"
                                 />
@@ -596,8 +594,7 @@ const LandingPage = () => {
                         {/* Member 3 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sai3.jpg"
+                                <img src="/images/sai3.jpg"
                                     alt="Nisha Adhikari"
                                     className="w-full h-full object-cover"
                                 />
@@ -625,8 +622,7 @@ const LandingPage = () => {
                         {/* Member 4 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sai3.jpg"
+                                <img src="/images/sai3.jpg"
                                     alt="Anita Thapa"
                                     className="w-full h-full object-cover"
                                 />
@@ -654,8 +650,7 @@ const LandingPage = () => {
                         {/* Member 5 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sai3.jpg"
+                                <img src="/images/sai3.jpg"
                                     alt="Sunita Gurung"
                                     className="w-full h-full object-cover"
                                 />
@@ -683,8 +678,7 @@ const LandingPage = () => {
                         {/* Member 6 */}
                         <div>
                             <div className="w-20 h-20 rounded-full bg-gray-200 overflow-hidden mb-4">
-                                <img
-                                    src="./image/sai3.jpg"
+                                <img src="/images/sai3.jpg"
                                     alt="Priya Magar"
                                     className="w-full h-full object-cover"
                                 />
@@ -735,8 +729,7 @@ const LandingPage = () => {
                     {/* Image Placeholder */}
                     <div className="w-full aspect-video bg-zinc-800 rounded-sm overflow-hidden relative group">
                         <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                            <img
-                                src="./image/sai_interior.jpeg"
+                            <img src="/images/sai_interior.jpeg"
                                 alt="Sai Beauty Parlour Front View"
                                 className="absolute inset-0 w-full h-full object-cover"
                             />

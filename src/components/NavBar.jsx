@@ -56,7 +56,7 @@ const NavBar = ({ forceScrolled = false }) => {
                     <div className="flex justify-between items-center py-2">
                         {/* Logo Placeholder */}
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2 ">
-                            <img src={isScrolled ? "/image/sai_final_logo.png" : "/image/nobg_sailogo.png"} alt="Sai Beauty Logo" className="h-10 sm:h-14 w-auto transition-all duration-300" />
+                            <img src={isScrolled ? "/images/sai_final_logo.png" : "/images/nobg_sailogo.png"} alt="Sai Beauty Logo" className="h-10 sm:h-14 w-auto transition-all duration-300" />
                             <div>
                                 <p className={`text-lg sm:text-xl transition-colors ${isScrolled ? 'text-gray-900' : 'text-white'}`} style={{ fontFamily: 'Pacifico, cursive', fontWeight: 400 }}>Sai Beauty Parlour</p>
                                 <p className={`text-xs sm:text-sm transition-colors ${isScrolled ? 'text-gray-600' : 'text-gray-300'}`}>& Training Center</p>

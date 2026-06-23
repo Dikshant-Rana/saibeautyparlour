@@ -1,5 +1,5 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaTiktok } from 'react-icons/fa6';
@@ -141,8 +141,7 @@ const Gallery = () => {
                 <section className="relative w-full h-[70vh] min-h-[500px] bg-stone-900 flex items-center justify-start overflow-hidden">
                     <div className="absolute inset-0 bg-stone-800">
                         {/* Background Image Placeholder */}
-                        <img
-                            src="./image/parlour_frontimg.jpeg"
+                        <img src="/images/parlour_frontimg.jpeg"
                             alt="Sai Beauty Parlour Front View"
                             className="absolute inset-0 w-full h-full object-cover"
                         />
@@ -168,8 +167,7 @@ const Gallery = () => {
                                 >
                                     {/* Cover Image */}
                                     <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-102">
-                                        <img
-                                            src={`/image/${category.coverImg}`}
+                                        <img src={`/images/${category.coverImg}`}
                                             alt={category.title}
                                             className="w-full h-full object-cover"
                                         />
@@ -205,8 +203,7 @@ const Gallery = () => {
                                         className="aspect-square bg-stone-200 rounded-lg shadow-sm hover:shadow-md transition-shadow overflow-hidden group cursor-pointer"
                                         onClick={() => openLightbox(idx)}
                                     >
-                                        <img
-                                            src={`/image/${imageName}`}
+                                        <img src={`/images/${imageName}`}
                                             alt={`${activeData.title} ${idx + 1}`}
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                         />
@@ -295,7 +292,7 @@ const Gallery = () => {
                             onTouchEnd={handleTouchEnd}
                         >
                             <img
-                                src={`/image/${activeData.images[currentImageIndex]}`}
+                                src={`/images/${activeData.images[currentImageIndex]}`}
                                 alt={`${activeData.title} ${currentImageIndex + 1}`}
                                 onLoad={handleImageLoad}
                                 className="w-auto h-auto max-w-full max-h-full object-contain rounded-lg shadow-2xl"

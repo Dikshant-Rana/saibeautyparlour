@@ -19,7 +19,7 @@ const Footer = () => {
                     {/* Logo */}
                     <div className="md:col-span-4 lg:col-span-3">
                         <div className="flex items-center mb-2 gap-2 -ml-3">
-                            <img src="/image/nobg_sailogo.png" alt="Sai Beauty Logo" className="h-12 sm:h-16 w-auto" />
+                            <img src="/images/nobg_sailogo.png" alt="Sai Beauty Logo" className="h-12 sm:h-16 w-auto" />
                             <div>
                                 <p className="text-md sm:text-xl text-white whitespace-nowrap" style={{ fontFamily: 'Bricolage Grotesque, sans-serif', lineHeight: '1' }}>Sai Beauty Parlour</p>
                                 <p className="text-md sm:text-xl text-white" style={{ fontFamily: 'Bricolage Grotesque, sans-serif', lineHeight: '1.5' }}>& Training Center</p>

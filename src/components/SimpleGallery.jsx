@@ -72,7 +72,7 @@ const SimpleGallery = () => {
                             onClick={() => openLightbox(index)}
                         >
                             <img
-                                src={`/image/${imageName}`}
+                                src={`/images/${imageName}`}
                                 alt={`Gallery image ${index + 1}`}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                 loading="lazy"
@@ -129,7 +129,7 @@ const SimpleGallery = () => {
                         onClick={(e) => e.stopPropagation()}
                     >
                         <img
-                            src={`/image/${images[currentImageIndex]}`}
+                            src={`/images/${images[currentImageIndex]}`}
                             alt={`Gallery image ${currentImageIndex + 1}`}
                             className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
                         />

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        ${footerContent.replace('./image/nobg_sailogo.png', '/image/nobg_sailogo.png')}
+        ${footerContent.replace('./images/nobg_sailogo.png', '/images/nobg_sailogo.png')}
     );
 };
 

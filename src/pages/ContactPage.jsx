@@ -1,5 +1,5 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPhone, FiMapPin, FiMail, FiClock, FiNavigation, FiMessageSquare, FiCheck, FiSend } from 'react-icons/fi';

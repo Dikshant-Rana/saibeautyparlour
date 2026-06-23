@@ -1,5 +1,5 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -33,7 +33,7 @@ const SkincareServicesPage = () => {
                     </div>
                     <div className="aspect-[1] w-full rounded-2xl overflow-hidden shadow-2xl relative">
                         <img
-                            src="/image/skincare.png"
+                            src="/images/skincare.png"
                             alt="Skincare Treatments"
                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                         />

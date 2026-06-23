@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import {
     FiBook, FiUsers, FiStar, FiActivity,
     FiBriefcase, FiCheckCircle, FiSearch
@@ -39,7 +39,7 @@ const CoursePage = () => {
             id: 1,
             name: "Basic Beautician Course",
             duration: "2 Months",
-            image: "./image/parlour_frontimg.jpeg",
+            image: "/images/parlour_frontimg.jpeg",
             description: "Perfect starting point for beginners who want to build a strong foundation in beauty.",
             skills: [
                 "Basic skincare and facial treatments",
@@ -53,7 +53,7 @@ const CoursePage = () => {
             id: 2,
             name: "Advanced Beautician Course",
             duration: "3 Months",
-            image: "./image/sai3.jpg",
+            image: "/images/sai3.jpg",
             description: "Designed for those ready to take their skills to a professional level.",
             skills: [
                 "Advanced facial therapies and treatments",
@@ -67,7 +67,7 @@ const CoursePage = () => {
             id: 3,
             name: "Diploma in Beautician Course",
             duration: "6 Months",
-            image: "./image/parlour_frontimg.jpeg",
+            image: "/images/parlour_frontimg.jpeg",
             description: "Our flagship complete program that covers both basic and advanced skills in depth.",
             skills: [
                 "Full range of basic and advanced beauty skills",
@@ -81,7 +81,7 @@ const CoursePage = () => {
             id: 4,
             name: "Abroad Special Course",
             duration: "3 Months",
-            image: "./image/sai1.jpg",
+            image: "/images/sai1.jpg",
             description: "Comprehensive international beauty standards course designed to prepare you for global salon opportunities.",
             skills: [
                 "Precision Hair Cutting and Layering Techniques",
@@ -101,7 +101,7 @@ const CoursePage = () => {
             id: 4,
             name: "Professional Nail Course",
             duration: "1 Month",
-            image: "./image/sai3.jpg",
+            image: "/images/sai3.jpg",
             skills: [
                 "Gel polish application and nail extensions",
                 "Acrylic and sculpting techniques",
@@ -114,7 +114,7 @@ const CoursePage = () => {
             id: 5,
             name: "Haircut and Styling Course",
             duration: "2 Months",
-            image: "./image/parlour_frontimg.jpeg",
+            image: "/images/parlour_frontimg.jpeg",
             skills: [
                 "Precision basic and advanced haircuts",
                 "Hair coloring and highlighting methods",
@@ -127,7 +127,7 @@ const CoursePage = () => {
             id: 6,
             name: "Professional Makeup Course",
             duration: "1.5 Months",
-            image: "./image/sai3.jpg",
+            image: "/images/sai3.jpg",
             skills: [
                 "Everyday, evening, and party makeup",
                 "Bridal and HD makeup techniques",
@@ -144,22 +144,21 @@ const CoursePage = () => {
             name: "Sanu Lama",
             role: "Owner & Lead Trainer",
             exp: "15+ years",
-            bio: "Specialist in bridal and fashion makeup with international experience.",
-            image: "./image/sai3.jpg"
+            bio: "Specialist in bridal and fashion makeup with international experience.",            image: "/images/sanu1.jpg"
         },
         {
             name: "Priya Sharma",
             role: "Hair Styling Specialist",
             exp: "10+ years",
             bio: "Expert in precision cutting and color techniques. Trained at international salons.",
-            image: "./image/parlour_frontimg.jpeg"
+            image: "/images/parlour_frontimg.jpeg"
         },
         {
             name: "Meera Kapoor",
             role: "Skincare & Facial Expert",
             exp: "8+ years",
             bio: "Certified aesthetician specializing in advanced facial therapies.",
-            image: "./image/sai3.jpg"
+            image: "/images/sai3.jpg"
         }
     ];
 
@@ -203,35 +202,35 @@ const CoursePage = () => {
             name: "Priya Sharma",
             role: "Basic Beautician Graduate",
             text: "This course completely transformed my skills. Having no prior experience, I was intimidated—but the hands-on practice gave me the confidence to start my own freelance business immediately after graduation.",
-            image: "./image/sai3.jpg",
+            image: "/images/sai3.jpg",
             rating: 5
         },
         {
             name: "Neha Kapoor",
             role: "Advanced Course Graduate",
             text: "The trainers were incredibly supportive and the practical focus helped me understand client-handling so much better. I got placed within 2 weeks of completing the course!",
-            image: "./image/parlour_frontimg.jpeg",
+            image: "/images/parlour_frontimg.jpeg",
             rating: 5
         },
         {
             name: "Anjali Mishra",
             role: "Diploma Graduate",
             text: "Six months felt like the perfect duration to truly master the craft. The certificate opened doors to premium salons, and I've been offered a senior position.",
-            image: "./image/sai3.jpg",
+            image: "/images/sai3.jpg",
             rating: 5
         }
     ];
 
     // Gallery Items
     const galleryItems = [
-        { id: 1, image: "./image/training1.jpg" },
-        { id: 2, image: "./image/training2.jpg" },
-        { id: 3, image: "./image/training3.jpg" },
-        { id: 4, image: "./image/training4.jpg" },
-        { id: 5, image: "./image/training5.jpg" },
-        { id: 6, image: "./image/training7.jpg" },
-        { id: 7, image: "./image/new1.jpg" },
-        { id: 8, image: "./image/new2.jpg" }
+        { id: 1, image: "/images/training1.jpg" },
+        { id: 2, image: "/images/training2.jpg" },
+        { id: 3, image: "/images/training3.jpg" },
+        { id: 4, image: "/images/training4.jpg" },
+        { id: 5, image: "/images/training5.jpg" },
+        { id: 6, image: "/images/training7.jpg" },
+        { id: 7, image: "/images/new1.jpg" },
+        { id: 8, image: "/images/new2.jpg" }
     ];
 
     // FAQ Data
@@ -272,8 +271,7 @@ const CoursePage = () => {
                 <section className="relative w-full min-h-[85vh] flex flex-col justify-center items-center py-24 overflow-hidden">
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0">
-                        <img
-                            src="./image/parlour_frontimg.jpeg"
+                        <img src="/images/parlour_frontimg.jpeg"
                             alt="Beauty Training Academy"
                             className="w-full h-full object-cover"
                         />

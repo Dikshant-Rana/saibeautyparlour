@@ -1,5 +1,5 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const AboutPage = () => {
                     {/* Background Image */}
                     <div className="absolute inset-0 z-0">
                         <img
-                            src="./image/team1.jpg"
+                            src="/images/team1.jpg"
                             alt="Sai Beauty Academy"
                             className="w-full h-full object-cover"
                         />
@@ -76,7 +76,7 @@ const AboutPage = () => {
                         <div className="relative order-1 lg:order-2">
                             <div className="aspect-square rounded-lg overflow-hidden shadow-2xl">
                                 <img
-                                    src="./image/sai_interior2.jpeg"
+                                    src="/images/sai_interior2.jpeg"
                                     alt="Academy Studio"
                                     className="w-full h-full object-cover"
                                 />
@@ -95,7 +95,7 @@ const AboutPage = () => {
                             <div className="relative w-full max-w-sm">
                                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
                                     <img
-                                        src="./image/sanu1.jpg"
+                                        src="/images/sanu1.jpg"
                                         alt="Sanu Lama - Founder"
                                         className="w-full h-full object-cover"
                                     />
@@ -191,7 +191,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Deepa Sharma"
                                             className="w-full h-full object-cover"
                                         />
@@ -213,7 +213,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Nisha Adhikari"
                                             className="w-full h-full object-cover"
                                         />
@@ -235,7 +235,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Anita Thapa"
                                             className="w-full h-full object-cover"
                                         />
@@ -257,7 +257,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Sunita Gurung"
                                             className="w-full h-full object-cover"
                                         />
@@ -279,7 +279,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Priya Magar"
                                             className="w-full h-full object-cover"
                                         />
@@ -301,7 +301,7 @@ const AboutPage = () => {
                                 <div className="mb-2 relative">
                                     <div className="aspect-square rounded-lg overflow-hidden shadow-lg border-4 border-gray-100">
                                         <img
-                                            src="./image/sai3.jpg"
+                                            src="/images/sai3.jpg"
                                             alt="Aarav Singh"
                                             className="w-full h-full object-cover"
                                         />
